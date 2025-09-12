@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html> <!-- talar om för webbläsaren vilken HTML verision det är. i detta fall HTML 5-->
+<html lang="sv"> <!--språkattributet. Sv för svenska, en för engelska-->
+<head> <!-- Head innehåller information om själva webbsidan, syns dock inte på den-->
+
+    <meta charset="UTF-8"> <!-- teckenkodning för att kunna använda bland annat ÅÄÖ-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>olssons kallsonger</title>
     <!-- Internal Styling-->
@@ -27,25 +28,44 @@
             min-width: 300px;
             margin: auto;
         }
-        
 
+        a {
+            transition: all 0.2s ease-in-out;
+            color: rgb(87, 87, 87);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+        }
+        a:hover {
+            transition: all 0.2s ease-in-out;
+            color: rgb(61, 61, 61);
+            text-decoration: underline;
+        }
+        main {
+            background-color: rgb(218, 218, 218);
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+            padding: 64px;
+
+        }
     </style>
 </head>
-<body>
-    <header class="nav-header">
-        <nav style="display: flex;">
+<body> <!-- här i läggs all HTML-kod som syns på webbsidan-->
+    <header class="nav-header"> <!-- i Header- är en semantisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidan eller en del av sidan-->
+        <nav style="display: flex;"> <!-- Semantisk HTML för navigation-->
             <h1 class="h1">Info</h1>
             <ul class="nav-ul">
-                <li><a href="#footer">Om mig</a></li>
-                <li>Utbildning</li>
-                <li>Arbetserfarenhet</li>
-                <li>Tech stack</li>
+                <li><a href="#about-me">Om mig</a></li>
+                <li><a href="#education">Utbildning</a></li>
+                <li><a href="#work">Arbetslivserfarenhet</a></li>
+                <li><a href="#tech-stack">Tech stack</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="about-me">
+    <main> <!-- i man- är en semantisk HTML-tagg som används för allt huvudinnehåll på webbläsaren-->
+        <section class="about-me" id="about-me">
+            <h1>fun facts</h1>
             <h2>Om mig</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quas explicabo deleniti obcaecati maxime doloremque nam impedit libero accusamus. Vitae, corporis sit nemo minus animi nostrum id architecto fuga voluptate?</p>
         </section>
@@ -121,7 +141,7 @@
             </article>
         </section>
     </main>
-    <footer id="footer">
+    <footer id="footer"> <!-- betyder botten av en webbsida, tvärt emot header-->
         <a href="tel:+46723413429">0712345678</a>
         <a href="mailto:samuel.andersson@angeskola.se">skicka email</a>
     </footer>

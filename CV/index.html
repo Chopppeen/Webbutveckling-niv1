@@ -4,104 +4,8 @@
 
     <meta charset="UTF-8"> <!-- teckenkodning för att kunna använda bland annat ÅÄÖ-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"" /> <!--länkar style.css filen till denna-->
     <title>olssons kallsonger</title>
-    <!-- Internal Styling-->
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        *{
-            padding: 0;
-            margin: 0;
-        }
-         .nav-header {
-            
-            background-color: rgb(185, 184, 184);
-            padding: 16px;
-            justify-content: center;
-            position:sticky;
-            top:0;
-        }
-        .nav-ul {
-            list-style: none;
-            display:flex;
-            gap: 32px;
-            flex-direction: row;
-            justify-content:space-evenly;
-            max-width: 900px;
-            min-width: 300px;
-            margin: auto;
-        }
-
-        a {
-            transition: all 0.2s ease-in-out;
-            color: rgb(87, 87, 87);
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-        }
-        a:hover {
-            transition: all 0.2s ease-in-out;
-            color: rgb(61, 61, 61);
-            text-decoration: underline;
-        }
-        body { 
-            background-image: url(https://64.media.tumblr.com/2654559cf9553e8efc126b5e765948e6/315dc451eb73d794-a6/s540x810/c175f29eb7ea23c17c53b8040ce6ed22a190bc5f.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment:fixed;
-            background-position:0 -165px;
-        }
-        main {
-            background-color:transparent;
-            display: flex;
-            flex-direction: column;
-            gap: 64px;
-            padding: 64px;
-
-        }
-
-        .about-me { 
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            
-            padding: 16px
-            
-        }
-        .education {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 16px
-            
-        }
-        article{
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 16px
-        }
-        
-        .article-header {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 16px
-        }
-        ol {
-            list-style: none;
-            line-height: 24px;
-        }
-        .p-header {
-            display: flex;
-            flex-direction:column;
-            grid-column: 1;
-        }
-
-    </style>
 </head>
 <body> <!-- här i läggs all HTML-kod som syns på webbsidan-->
     <header class="nav-header"> <!-- i Header- är en semantisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidan eller en del av sidan-->
@@ -123,6 +27,8 @@
             <h2>Om mig</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quas explicabo deleniti obcaecati maxime doloremque nam impedit libero accusamus. Vitae, corporis sit nemo minus animi nostrum id architecto fuga voluptate?</p>
         </section>
+
+        <hr /> <!--sätter en linje mellan dessa två sections-->
 
         <section class="education" id="education">
             <h2>Utbildning</h2>
@@ -147,8 +53,10 @@
                 </ol>
             </article>
         </section>
+
+        <hr /> 
         
-        <section id="work">
+        <section class="work" id="work" >
             <h2>Arbetslivserfarenhet</h2>
 
             <article>
@@ -172,13 +80,15 @@
             </article>
         </section>
 
-        <section id="tech-stack">
+        <hr />
+
+        <section id="tech-stack" class="tech-stack">
             <h2>Tech stack</h2>
             <article>
                 <header>
                     <h4>programmeringspråk</h4>
                 </header>
-                 <ul>
+                 <ul class="tech-stack-ul">
                     <li>HTML</li>
                     <li>CSS</li>
                     <li>JavaScript</li>
@@ -194,6 +104,7 @@
                 </ol>
             </article>
         </section>
+        <hr />
     </main>
     <footer id="contact"> <!-- betyder botten av en webbsida, tvärt emot header-->
         <a href="tel:+46723413429">0712345678</a>

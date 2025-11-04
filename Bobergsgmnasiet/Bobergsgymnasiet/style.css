@@ -3,9 +3,24 @@
     margin: 0;
 }
 
+button{
+    border: none;
+    background-color:transparent;
+}
+
 header{
-    background-color:cornflowerblue;
+    background-color:burlywood;
     padding: 16px;
+    min-height: calc(100vh - 32px);
+}
+
+nav{
+    position: relative;
+    display:block;
+}
+
+.hidden{
+    display: none;
 }
 
 ul{
@@ -16,4 +31,21 @@ ul{
 
 li{
     list-style: none;
+}
+
+a{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.social-image{
+    max-width: 32px;
+}
+
+.menu-close-btn{
+  width: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -9,14 +9,15 @@ button{
 }
 
 header{
-    background-color:burlywood;
+    background-color: burlywood;
     padding: 16px;
     min-height: calc(100vh - 32px);
 }
 
 nav{
     position: relative;
-    display:block;
+    padding: 32px;
+    display: block;
 }
 
 .hidden{
@@ -43,7 +44,7 @@ a{
     max-width: 32px;
 }
 
-.menu-close-btn{
+.menu-btn{
   width: 32px;
   position: absolute;
   top: 0;

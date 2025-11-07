@@ -1,10 +1,20 @@
-const menuCloseBtn = document.querySelector(".menu-close-btn");
+const mobilenav = document.querySelector(".mobilenav");
+const hamburgerBtn = document.querySelector("#menu-open")
 
 const closeMenu = () => {
-	const nav = document.querySelector("nav");
-	nav.classList.add["hidden"];
+	mobileNav.classList.add("hidden")
+	hamburgerBtn.classList.remove("hidden")
 }
 
-if (menuCloseBtn) {
-	menuCloseBtn.addEventListener("click", closeMenu);
+const openMenu = () => {
+	hamburgerBtn.classList.add("hidden")
+	mobileNav.classList.remove("hidden")
 }
+
+const menuCloseBtn = document
+.querySelector("#menu-close")
+.addEventListener("click", closeMenu);
+
+const menuOpenBtn = document
+.querySelector("#menu-open")
+.addEventListener("click", openMenu);

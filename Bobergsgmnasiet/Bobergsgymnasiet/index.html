@@ -16,19 +16,38 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a>Hem</a></li>
-                <li><a>Om Bobergsgymnasiet</a></li>
-                <li><a>Global Classroom</a></li>
-                <li><a>Program</a></li>
-                <li><a>För Elever</a></li>
-                <li><a>Elevhälsa</a></li>
-                <li><a>kontakt</a></li>
-                <li><a ><img class="social-image" src="./img/facebook-f-brands-solid-full.svg"></a></li>
-                <li><a ><img class="social-image" src="./img/instagram-brands-solid-full.svg"></a></li>
-            </ul>
+            <section class="mobile-nav hidden">
+                <ul>
+                    <li><a>Hem</a></li>
+                    <li><a>Om Bobergsgymnasiet</a></li>
+                    <li><a>Global Classroom</a></li>
+                    <li><a>Program</a></li>
+                    <li><a>För Elever</a></li>
+                    <li><a>Elevhälsa</a></li>
+                    <li><a>kontakt</a></li>
+                    <li>
+                        <a
+                        ><img
+                              src="./img/facebook-f-brands-solid-full.svg" class="social-image"
+                        ></a>
+                    </li>
+                    <li>
+                        <a
+                            ><img 
+                            src="./img/instagram-brands-solid-full.svg"
+                            class="social-image"
+                        /></a>
+                    </li>
+                </ul>
 
-            <button type="Button" class="menu-close-btn"><img src="./img/xmark-solid-full.svg"></button>
+                <button type="button" class="menu-btn" id="menu-close">
+                    <img src="./img/xmark-solid-full.svg">
+                </button>
+            </section>
+
+            <button type="button" class="menu-btn" id="menu-open">
+                <img src="./img/bars-solid-full.svg">
+            </button>
         </nav>
     </header>
 </body>

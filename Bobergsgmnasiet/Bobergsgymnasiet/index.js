@@ -1,13 +1,16 @@
-const mobilenav = document.querySelector(".mobilenav");
+const nav = document.querySelector("nav");
+const mobileNav = document.querySelector(".mobile-nav");
 const hamburgerBtn = document.querySelector("#menu-open")
 
 const closeMenu = () => {
 	mobileNav.classList.add("hidden")
+	nav.classList.add("nav-closed")
 	hamburgerBtn.classList.remove("hidden")
 }
 
 const openMenu = () => {
 	hamburgerBtn.classList.add("hidden")
+	nav.classList.remove("nav-closed")
 	mobileNav.classList.remove("hidden")
 }
 

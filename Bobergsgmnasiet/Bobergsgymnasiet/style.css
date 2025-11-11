@@ -1,6 +1,8 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: "inter", sans-serif;
+    font-optical-sizing: auto;
 }
 
 button{
@@ -8,26 +10,37 @@ button{
     background-color:transparent;
 }
 
-header{
-    background-color: burlywood;
-    padding: 16px;
-    min-height: calc(100vh - 32px);
-}
-
 nav{
     position: relative;
-    padding: 32px;
-    display: block;
+    padding: 16px;
+    background-color: f1f1f1;
+}
+
+.nav-closed{
+    display: flex;
+    align-items: center;
+}
+
+header nav a:first-child{
+    position: relative;
+    text-decoration: none;
+    color: #111111;
+    font-weight: 600;
 }
 
 .hidden{
     display: none;
 }
 
+.top-0{
+    top: 0;
+}
+
 ul{
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top:  32px;
 }
 
 li{
@@ -35,8 +48,6 @@ li{
 }
 
 a{
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
 }
 
@@ -47,6 +58,5 @@ a{
 .menu-btn{
   width: 32px;
   position: absolute;
-  top: 0;
   right: 0;
 }

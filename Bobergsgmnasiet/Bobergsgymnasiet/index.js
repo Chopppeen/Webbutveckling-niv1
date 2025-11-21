@@ -57,17 +57,46 @@ const renderNews = () => {
 		card.className = "news-card";
 
 		card.innerHTML = `
-			<img src="${news.img}" alt="${news.title}" class="news-img" />
-			h3 class="news-title">${news.title}</h3>
+			<img src="${news.img}" alt="${news.title}" class="news-image" />
+			<h3 class="news-title">${news.title}</h3>
 			<p class="news-date">${news.date}</p>
-			`/
+			`;
+
+
+		card.addEventListener("click", () => {
+			window.location.href = `news.html?id=${news.id}`;
+		});
+
 
 			container.appendChild(card);
 	});
 };
 
-renderNews();
+const renderNewsDetail = () => {
+	const container = document.querySelector(".news-content");
+	if (!container) return;
 
- const loggaIn = document.querySelector(".logga-in");
- const loggaInBtn = document.querySelector("#logga-in-btn");
- 
+	// Hämta ID från URL-parametern
+	const urlParams = new URLSearchParams(window.location.search)
+	const newsId = urlParams.get("id")
+
+	// Hitta rätt artikel
+	const newsItem = news.find((n) => n.id === newsId)
+
+	if (newsItem) {
+		container.innerHTML = `
+		<img src="${newsItem.img}" alt="${newsItem.title}" class="news-image" />
+		<h1 class="news-title">${newsItem.title}</h1>
+		<p class="news-date">${newsItem.date}</p>
+		<p class="news-text">${newsItem.content}</p>
+		`;
+	} else {
+		container.innerHTML =`
+	<p>Artikeln kunde inte hittas.</p>
+	`;
+	}
+};
+
+// kör rätt funktion beronde på vilken sida vi är på
+if (document.querySelector(".news-grid")) renderNews()
+if (document.querySelector(".news-content")) renderNewsDetail()

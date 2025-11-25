@@ -100,3 +100,16 @@ const renderNewsDetail = () => {
 // kör rätt funktion beronde på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews()
 if (document.querySelector(".news-content")) renderNewsDetail()
+
+const showMoreBtn = document.querySelector(".aktuella-händelser-knapp");
+if (showMoreBtn) {
+	showMoreBtn.addEventListener("click", () => {
+	})};
+
+renderNews = () => {
+	const container = document.querySelector(".news-grid");
+	news.forEach((news) => {
+		const card = document.createElement("div");
+		card.className = "aktuella-händelser";
+		card.innerHTML = `
+		<p

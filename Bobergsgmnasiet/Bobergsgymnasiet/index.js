@@ -96,20 +96,67 @@ const renderNewsDetail = () => {
 	`;
 	}
 };
-
-// kör rätt funktion beronde på vilken sida vi är på
+// Rendera beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews()
 if (document.querySelector(".news-content")) renderNewsDetail()
 
-const showMoreBtn = document.querySelector(".aktuella-händelser-knapp");
-if (showMoreBtn) {
-	showMoreBtn.addEventListener("click", () => {
-	})};
+const newArticles = [
+  { title: "Ny Artikel 1", date: "20 november 2025", img: "./img/new1.webp", content: "Innehåll 1" },
+  { title: "Ny Artikel 2", date: "20 november 2025", img: "./img/new2.webp", content: "Innehåll 2" },
+  { title: "Ny Artikel 3", date: "20 november 2025", img: "./img/new3.webp", content: "Innehåll 3" },
+  { title: "Ny Artikel 4", date: "20 november 2025", img: "./img/new4.webp", content: "Innehåll 4" },
+  { title: "Ny Artikel 5", date: "20 november 2025", img: "./img/new5.webp", content: "Innehåll 5" },
+  { title: "Ny Artikel 6", date: "20 november 2025", img: "./img/new6.webp", content: "Innehåll 6" }
+];
 
-renderNews = () => {
-	const container = document.querySelector(".news-grid");
-	news.forEach((news) => {
-		const card = document.createElement("div");
-		card.className = "aktuella-händelser";
-		card.innerHTML = `
-		<p
+let shownNew = 3;
+const container = document.querySelector(".news-grid");
+let btnNew = document.querySelector("#loadNewArticlesBtn");
+
+if (!btnNew) {
+  btnNew = document.createElement("button");
+  btnNew.id = "loadNewArticlesBtn";
+  btnNew.style.marginTop = "20px";
+  btnNew.style.cursor = "pointer";
+  container.parentNode.appendChild(btnNew);
+}
+
+function renderNewArticles() {
+  const next = shownNew + 3; 
+  for (let i = shownNew; i < next && i < newArticles.length; i++) {
+    const n = newArticles[i];
+    const card = document.createElement("div");
+    card.className = "news-card";
+
+    card.innerHTML = `
+      <img src="${n.img}" alt="${n.title}" class="news-image" />
+      <h3>${n.title}</h3>
+      <p>${n.date}</p>
+      <button class="expand-btn">Visa mer</button>
+      <p class="news-text" style="display:none">${n.content}</p>
+    `;
+
+    const expandBtn = card.querySelector(".expand-btn");
+    const textP = card.querySelector(".news-text");
+
+    expandBtn.addEventListener("click", () => {
+      if (textP.style.display === "none") {
+        textP.style.display = "block";
+        expandBtn.textContent = "Visa mindre";
+      } else {
+        textP.style.display = "none";
+        expandBtn.textContent = "Visa mer";
+      }
+    });
+
+    container.appendChild(card);
+  }
+
+  shownNew += 3;
+
+  if (shownNew >= newArticles.length) {
+    btnNew.style.display = "none";
+  }
+}
+
+btnNew.addEventListener("click", renderNewArticles);

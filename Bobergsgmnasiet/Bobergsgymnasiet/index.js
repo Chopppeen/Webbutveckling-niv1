@@ -171,9 +171,7 @@ const renderNewsDetail = () => {
 	`;
 	}
 };
-// Rendera beroende på vilken sida vi är på
-if (document.querySelector(".news-grid")) renderNews()
-if (document.querySelector(".news-content")) renderNewsDetail()
+
 
 const createDateElement = (event) => {
 	// kolla om händelsen har ett slutdatum
@@ -182,39 +180,89 @@ const createDateElement = (event) => {
 		if (event.month === event.endMonth) {
 			//om samma månad,visa datum i en ruta´
 			return `
-			<div class="event-date">
-				<h2>${event.day} - ${event.endDay}</h2>
-			</div>
-			<div class="event-month">
-				<p>${event.month} - ${event.endMonth}</p>
-			</div>
+			<time class="event-date"> datetime="${event.day}-${event.endMonth}">
+				<span class="date-day">${event.day}}</span>
+				<span class="date-separator">-</span>
+				<span class="date-day">${event.endDay}</span>
+				<span class="date-month">${event.month}-</span>
+			</time>
 			`;
 		} else {
 			return `
-				<div class="event-date">
-					<div class="event-date-container">
-						<h2>${event.day}</h2>
-					</div>
-					<div="date-container">
-						<h2>${event.endDay}</h2>
-					</div>
-				</div>
-				<div class="event-date">
-					<div class="event-date-container">
-						<h2>${event.month}</h2>
-					</div>
-					<div="date-container">
-						<h2>${event.endMonth}</h2>
-					</div>
-				</div>
+			<time class="event-date" datetime="${event.day}-${event.month}">
+				<span class="date-day">${event.day}</span>
+				<span class="date-month">${event.month}</span>
+			</time>
+			<time class="event-date" datetime="${event.endDay}-${event.endMonth}">
+				<span class="date-day">${event.endDay}</span>
+				<span class="date-month">${event.endMonth}</span>
+			</time>
 			`;
 		}
 	} else {
 		return `
-		
+		<time class="event-date" datetime="${event.day}-${event.month}">
+			<span class="date-day">${event.endDay}</span>
+			<span class="date-month">${event.endMonth}</span>
+		</time>
 		`;
 	}
 };
+
+renderEvents = () => {
+	const container = document.querySelector(".event-list");
+
+	//töm containern först
+	container.innerHTML = "";
+
+	//hämta rätt antal händelser från arrayen
+	const eventsToShow = events.slice(0, shownEvents);
+
+	//loopa igenom och skapa HTML för varje händelse
+	eventsToShow.forEach(event => {
+		const eventElement = document.createElement("li");
+		eventElement.className = "event-item";
+
+		//skapa datum-HTML med hjälp av funktion
+		const dateHTML = createDateElement(event);
+		
+		eventElement.innerHTML = `
+		<article>
+			${dateHTML}
+			<section class="event-info">
+				<header class="event-titlerow">
+					<h3 class="event-title">${event.title}</h3>
+					<span class="status-circle status-${event.statusColor}" aria-label="status"></span>
+				</header>
+				<time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
+			</section>
+			<a href="#" class="event-details">Detaljer</a>
+		</article>
+		`;
+
+		container.appendChild(eventElement);
+	})
+};
+
+//funktion för att hantera visa fler knappen
+const handleShowMore = () => {
+	//öka antal händerlser som visas
+	shownEvents += 3;
+
+	//rendera om listan med fler händelser
+	renderEvents();
+
+	//kolla om alla händelser visas, isf göm knappen
+	if (shownEvents >= events.length) {
+		const btn = document.querySelector("#show-more-events-btn");
+		btn.classList.add("hidden");
+	}
+}
+
+//kör rätt funktion beroende på sida vi är på
+if (document.queryselector(".news-grid")) renderNews();
+if (document.querySelector(".news-content")) {renderNewsDetail()};
+
 
 // const newArticles = [
 //   { title: "Ny Artikel 1", date: "20 november 2025", img: "./img/new1.webp", content: "Innehåll 1" },

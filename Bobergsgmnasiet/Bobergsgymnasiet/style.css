@@ -134,3 +134,52 @@ a{
     background-color: slategray;
 }
 
+/* Event-list */
+.event-article {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.event-card {
+    background-color: violet;
+
+}
+
+
+.date-wrapper {
+    padding: 16px;
+    background-color: blueviolet;
+    display: flex;
+    gap:16px
+}
+
+.event-date {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    max-width: fit-content;
+    color: #e0e0e0
+    font-weight: /00;
+}
+
+.date-day {
+    padding: 8px;
+
+}
+
+.date-month {
+    padding: 8px;
+
+    border-radius: 0px 0px 8px 8px;
+    background-color: rgb(152, 41, 41);
+}

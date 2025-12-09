@@ -227,8 +227,10 @@ renderEvents = () => {
 		const dateHTML = createDateElement(event);
 		
 		eventElement.innerHTML = `
-		<article>
-			${dateHTML}
+		<article class="event-card">
+			<div class="date-wrapper">
+				${dateHTML}
+			</div>
 			<section class="event-info">
 				<header class="event-titlerow">
 					<h3 class="event-title">${event.title}</h3>
@@ -237,6 +239,7 @@ renderEvents = () => {
 				<time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
 			</section>
 			<a href="#" class="event-details">Detaljer</a>
+			<hr />
 		</article>
 		`;
 
@@ -254,14 +257,20 @@ const handleShowMore = () => {
 
 	//kolla om alla händelser visas, isf göm knappen
 	if (shownEvents >= events.length) {
-		const btn = document.querySelector("#show-more-events-btn");
-		btn.classList.add("hidden");
+		const btn = document.querySelector(".show-more-btn");
+		if (btn) btn.classList.add("hidden");
 	}
 }
 
+const showMoreBtn = document.querySelector(".show-more-btn");
+if (showMoreBtn) {
+	showMoreBtn.addEventListener("click", handleShowMore);
+}
+
 //kör rätt funktion beroende på sida vi är på
-if (document.queryselector(".news-grid")) renderNews();
+if (document.querySelector(".news-grid")) renderNews();
 if (document.querySelector(".news-content")) {renderNewsDetail()};
+if (document.querySelector(".event-list")) renderEvents();
 
 
 // const newArticles = [

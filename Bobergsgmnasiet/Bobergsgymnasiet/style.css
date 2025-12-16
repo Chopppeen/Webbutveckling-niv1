@@ -13,6 +13,16 @@ button {
 nav {
   background-color: #f1f1f1;
   padding: 16px;
+
+}
+
+.dekstop.nav {
+  display: none;
+}
+
+.nav-content-wrapper {
+  max-width: 1400px;
+  margin: auto;
 }
 
 .nav-top {
@@ -70,8 +80,12 @@ a {
   width: 32px;
 }
 
-.news-grid {
+.news-article {
   padding: 16px;
+}
+
+.news-grid {
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,10 +102,10 @@ a {
 
 .news-image {
   width: 100%;
-  max-width: 350px;
-  max-height: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
+  object-position: center;
 }
 
 .news-title {
@@ -208,6 +222,33 @@ a {
 
 @media (min-width: 640px) {
   .news-grid {
-    background-color: brown;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+  }
+
+  .news-card {
+    width: 100%;
+    max-width: 250px;
+    flex: 1 1 200px;
+  }
+
+  .news-image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu-btn, 
+  .mobile-nav {
+    display: none;
+  }
+
+  .dekstop.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;  
   }
 }
